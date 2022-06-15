@@ -1,5 +1,7 @@
 # Constraint Guided Gradient Descent: Guided Training with Inequality Constraints
 
+This is the code repository for the experiments described in the paper _Constraint Guided Gradient Descent: Training with Inequality Constraints, Quinten Van Baelen, Peter Karsmakers_. The paper is available here [https://arxiv.org/abs/2206.06202](https://arxiv.org/abs/2206.06202).
+
 Important Packages and Versions
 ---
 Please make sure that this section is compatible with the Python environment used to reproduce the experiments.
