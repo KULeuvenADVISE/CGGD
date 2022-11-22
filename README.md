@@ -1,6 +1,6 @@
 # Constraint Guided Gradient Descent: Guided Training with Inequality Constraints
 
-This is the code repository for the experiments described in the paper _Constraint Guided Gradient Descent: Training with Inequality Constraints, Quinten Van Baelen, Peter Karsmakers_. The paper is available here [https://arxiv.org/abs/2206.06202](https://arxiv.org/abs/2206.06202).
+This is the code repository for the experiments described in the paper _Constraint Guided Gradient Descent: Training with Inequality Constraints, Quinten Van Baelen, Peter Karsmakers_. The paper is available [here](https://www.esann.org/sites/default/files/proceedings/2022/ES2022-105.pdf).
 
 Important Packages and Versions
 ---
@@ -62,4 +62,16 @@ The files used to perform the experiments to check this hypothesis are in the di
 Contact
 ---
 For questions, problems and/or remarks, please contact the author: <quinten.vanbaelen@kuleuven.be> ORCID iD 0000-0003-2863-4227.
+
+Reference
+---
+Please use the citation below if you want to refer to this work.
+
+@inproceedings{VanBaelen2022CGGD,
+    author = {Van Baelen, Quinten and Karsmakers, Peter},
+    booktitle = {Proceedings of the 30th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning},
+    title = {Constraint guided gradient descent: Guided training with inequality constraints},
+    year = {2022},
+    doi = {https://doi.org/10.14428/esann/2022.ES2022-105},
+}
 
