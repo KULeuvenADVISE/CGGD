@@ -67,6 +67,7 @@ Reference
 ---
 Please use the citation below if you want to refer to this work.
 
+~~~
 @inproceedings{VanBaelen2022CGGD,
     author = {Van Baelen, Quinten and Karsmakers, Peter},
     booktitle = {Proceedings of the 30th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning},
@@ -74,4 +75,5 @@ Please use the citation below if you want to refer to this work.
     year = {2022},
     doi = {https://doi.org/10.14428/esann/2022.ES2022-105},
 }
+~~~
 
