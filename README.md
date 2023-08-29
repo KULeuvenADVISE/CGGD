@@ -1,79 +1,69 @@
-# Constraint Guided Gradient Descent: Guided Training with Inequality Constraints
-
-This is the code repository for the experiments described in the paper _Constraint Guided Gradient Descent: Training with Inequality Constraints, Quinten Van Baelen, Peter Karsmakers_. The paper is available [here](https://www.esann.org/sites/default/files/proceedings/2022/ES2022-105.pdf).
-
-Important Packages and Versions
----
-Please make sure that this section is compatible with the Python environment used to reproduce the experiments.
-
-The code was ran and tested for the following versions of the packages listed below. All packages are necessary for running the provided scripts.
-
-| Package | Version |
-|---------| ------- | 
-| numpy | 1.19.4 |
-| pandas | 1.1.5 |
-| scipy | 1.4.1 |
-| scikit-learn | 0.20.2 |
-| tensorflow | 2.2.0 |
+# Constraint Guided Gradient Descent: Guided Training with Inequality Constraints with Applications in Regression and Semantic Segmentation
 
 
-How to run any file
----
+This is the code repository for the experiments described in the paper _Constraint Guided Gradient Descent: Guided Training with Inequality Constraints, Quinten Van Baelen, Peter Karsmakers_ (available [here](https://doi.org/10.14428/esann/2022.ES2022-105)), and _Constraint Guided Gradient Descent: Guided Training with Inequality Constraints with Applications in Regression and Semantic Segmentation, Quinten Van Baelen, Peter Karsmakers_ (available [here](https://doi.org/10.1016/j.neucom.2023.126636)).
 
-When running a certain file it is required to set the current working directory to the directory of the file that is run. Otherwise, the paths are not constructed properly and the files will not work. For example, if the current working directory is set to the directory of this file, then the experiments for the bias correction data set can be run by:
+
+
+The code for the semantic segmentation experiments, as described in [2], is based upon [Sizeloss_WSS](https://github.com/LIVIAETS/SizeLoss_WSS/tree/master) and [extended_logbarrier](https://github.com/LIVIAETS/extended_logbarrier/tree/master) because semantic segmentation tasks are very similar to the ones done in the corresponding papers. In each script it is clearly stated what has been added in this repository and what already existed in either of the previously mentioned repositories. The full possibility of the code as presented in these repositories are not guaranteed in this repository. This code base will most likely only support the experiments described in [2].
+
+## How to run an experiment
+
+Please look into the instructions described in the **README.md** file in the corresponding directory. Running the experiments in [1] is very similar to running the regression experiments in [2, Section 5.1], while running the experiments in [2, Section 5.2] is different.
+
+
+
+## Content of directories
+- [regression](https://github.com/KULeuvenADVISE/CGGD/tree/main/regression):
+    - Contains the scripts necessary to perform the experiments described in [1].
+- [regression-sup-semisup](https://github.com/KULeuvenADVISE/CGGD/tree/main/regression-sup-semisup):
+    - Contains the scripts necessary to perform the experiments described in [2, Section 5.1] and a notebook to postprocess the results and visualize them in a similar fashion as was done in the corresponding paper.
+- [semanticsegmentation](https://github.com/KULeuvenADVISE/CGGD/tree/main/semanticsegmentation):
+    - Contains the scripts necessary to perform the experiments described in [2, Section 5.2] and a notebook to postprocess the results and visualize them in a similar fashion as was done in the corresponding paper.
+- [venv-requirements](https://github.com/KULeuvenADVISE/CGGD/tree/main/venv-requirements):
+    - Contains the virtual environments for running the experiments. This repository uses 3 different virtual environments. The first one ([requirements-regression](https://github.com/KULeuvenADVISE/CGGD/blob/main/venv-requirements/requirements-regression)) is the virtual environment used for running the experiments in [**regression**](https://github.com/KULeuvenADVISE/CGGD/tree/main/regression). Note that this uses TensorFlow 2.2.0 and, thus, this is not supported for all GPUs (NVIDIA 30 series does not support this version of TensorFlow). The second one ([requirements-regression-sup-semisup.yml](https://github.com/KULeuvenADVISE/CGGD/blob/main/venv-requirements/requierements-regression-sup-semisup.yml)) contains the virtual environment for running the experiments in [**regression-sup-semisup**](https://github.com/KULeuvenADVISE/CGGD/tree/main/regression-sup-semisup). The third one ([requirements-semanticsegmentatio.ymln](https://github.com/KULeuvenADVISE/CGGD/blob/main/venv-requirements/requirements-semanticsegmentation.yml)) is the virtual environment used for running the experiments in [**semanticsegmentation**](https://github.com/KULeuvenADVISE/CGGD/tree/main/semanticsegmentation). This uses PyTorch because the implementation of the baselines was already available in PyTorch.
+
+
+
+## Data Sets
+
+This repository uses three publicly available data sets:
+- The Bias Correction data set is available [here](https://archive.ics.uci.edu/ml/datasets/Bias+correction+of+numerical+prediction+model+temperature+forecast). For running the experiments on this data set, please download it and put it in __./regressions/DataSets__. Make sure that the file is named __Bias_correction_ucl.csv__, but normally this should be satisfied automatically.
+- The Family Income data set is available [here](https://www.kaggle.com/grosvenpaul/family-income-and-expenditure).  For running the experiments on this data set, please download it and put it in __./regressions/DataSets__. Make sure that the file is named __Family Income and Expenditure.csv__, but normally this should be satisfied automatically.
+- The Prostate data set is available [here](https://promise12.grand-challenge.org/Download/). Only the training data is used in the experiments, so it is only necessary to have __TrainingDataPart1.zip__, __TrainingDataPart2.zip__, and __TrainingDataPart3.zip__ downloaded from [here](https://zenodo.org/record/8014041).
+
+The toy data set for the semantic segmentation experiments is created by running a script provided in the corresponding directory.
+
+## References
+
+[1] [_Constraint Guided Gradient Descent: Guided Training with Inequality Constraints, Quinten Van Baelen, Peter Karsmakers_](https://doi.org/10.14428/esann/2022.ES2022-105)
+
+[2] [_Constraint Guided Gradient Descent: Guided Training with Inequality Constraints with Applications in Regression and Semantic Segmentation, Quinten Van Baelen, Peter Karsmakers_](https://doi.org/10.1016/j.neucom.2023.126636)
+
+## Citation
+
+If you use this repository, please cite one of the relevant papers. The citations can be found below.
 
 ```
-$ cd ./Datasets/
-$ python dataPreprocessing.py
-
-$ cd ../Hypothesis1/BiasCorrection/
-$ python main.py
-```
-
-When the data preprocessing is already performed (and the current working directory is set to the directory of this file), then the experiments of the bias correction data set can be run by:
-
-```
-$ cd ./Hypothesis1/BiasCorrection/
-$ python main.py
-```
-
-Data Sets
----
-
-Before running any experiments, make sure that the data sets are downloaded and saved in the **DataSets** directory with the names __Bias_correction_ucl.csv__ and __Family Income and Expenditure.csv__. This should match the original filenames of the downloads.
-
-Afterwards, one should run the script __./DataSets/dataPreprocessing.py__ in order to construct the data samples that are used to perform the experiments. More explanation about the sampling is given in the README file in the same directory.  
-
-For convenience:
-- The Bias Correction data set is available [here](https://archive.ics.uci.edu/ml/datasets/Bias+correction+of+numerical+prediction+model+temperature+forecast) and in the directory **DataSets**.
-- The Family Income data set is available [here](https://www.kaggle.com/grosvenpaul/family-income-and-expenditure) and in the directory **DataSets**.
-
-
-
-
-Hypothesis 1
----
-
-The performance of the model trained by **CGGD** is less dependent on the initialization of the network weights compared to a model trained without constraints or a model trained with a fuzzy-like loss function. More specific, the standard deviation of the performance of the models obtained by applying **CGGD** is lower than that of the models obtained from unconstrained training and the mean is at least comparable between the models from both methods.
-
-The files used to perform the experiments to check this hypothesis are in the directory _Hypothesis1_.
-
-
-Contact
----
-For questions, problems and/or remarks, please contact the author: <quinten.vanbaelen@kuleuven.be> ORCID iD 0000-0003-2863-4227.
-
-Reference
----
-Please use the citation below if you want to refer to this work.
-
-~~~
-@inproceedings{VanBaelen2022CGGD,
+@inproceedings{VanBaelen2022,
     author = {Van Baelen, Quinten and Karsmakers, Peter},
     booktitle = {Proceedings of the 30th European Symposium on Artificial Neural Networks, Computational Intelligence and Machine Learning},
     title = {Constraint guided gradient descent: Guided training with inequality constraints},
     year = {2022},
-    doi = {https://doi.org/10.14428/esann/2022.ES2022-105},
+    doi = {10.14428/esann/2022.ES2022-105},
+    pages = {175-180},
 }
-~~~
+
+@article{VanBaelen2023,
+    author = {Van Baelen, Quinten and Karsmakers, Peter},
+    journal = {Neurocomputing},
+    title = {Constraint Guided Gradiend Descent: Guided Training with Inequality Constraints with Applications in Regression and Semantic Segmentation},
+    year = {2023},
+    doi = {10.1016/j.neucom.2023.126636},
+}
+```
+
+## Contact
+
+For questions, problems and/or remarks, please contact the author: <quinten.vanbaelen@kuleuven.be> ORCID iD 0000-0003-2863-4227.
 
