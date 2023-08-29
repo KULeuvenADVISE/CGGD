@@ -18,7 +18,7 @@ The code was ran and tested for the following versions of the packages listed be
 | tensorflow | 2.2.0 |
 
 
-For the full virtual environment that was used to perform these experiments, please install the environment as listed in [**venv-requirements/requirements-regression**](https://https://github.com/KULeuvenADVISE/CGGD/blob/main/venv-requirements/requirements-regression). 
+For the full virtual environment that was used to perform these experiments, please install the environment as listed in [**venv-requirements/requirements-regression**](https://github.com/KULeuvenADVISE/CGGD/blob/main/venv-requirements/requirements-regression.txt). 
 
 
 Data Sets
